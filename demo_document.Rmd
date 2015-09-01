@@ -1,0 +1,35 @@
+---
+title: "demo_document"
+author: "Mine Cetinkaya-Rundel"
+date: "8/27/2015"
+output: html_document
+---
+
+Load the dplyr and ggplot2 packages for data wrangling and visualization, respectively.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+Load data:
+
+```{r}
+gapminder <- read.csv("https://stat.duke.edu/~mc301/data/gapminder.csv")
+```
+
+Filter for 2007:
+
+```{r}
+gap07 <- gapminder %>%
+  filter(year == 2007)
+```
+
+Plot:
+
+```{r}
+qplot(x = gdpPercap, y = lifeExp, data = gap07)
+qplot(x = gdpPercap, y = lifeExp, color = continent, data = gap07)
+```
+
+
